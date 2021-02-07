@@ -1,28 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="utf-8">
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-  <title>title filler text</title>
-  <meta content="description filler text" name="description">
-  <meta content="keywords filler text" name="keywords">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- Favicons -->
+        <title>Uotta hack 2021 Website</title>
+    </head>
+    <body>
+
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Syllabi</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link">My Courses</a></li>
+                        <li class="nav__item"><a href="#menu" class="nav__link">Google Calendar</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">The Team</a></li>
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <h1 class="home__title">Syllabus</h1>
+                        <h2 class="home__subtitle"> An easier way to schedule <br> </h2>
+                        <a href="getStarted.html" class="button"> Get Started</a>
+                    </div>
+    
+                    <img src="assets/img/—Pngtree—woman work from home with_5388281.png" alt="" class="home__img">
+                </div>
+            </section>
+            
+            <!--========== ABOUT ==========-->
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">About us</span>
+                        <h2 class="section-title about__initial">We help you stay organized </h2>
+                        <p class="about__description">We take your class syallbus and convert it into google calendar events, keeping you on track, all semester. </p>
+                    </div>
+
+                    <img src="assets/img/papers.svg" alt="" class="about__img">
+                </div>
+            </section>
+
+            <!--========== SERVICES ==========-->
+           <section class = "services" id = "services"> 
+
+           </section>
+                    
 
 
-  <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="app.js"></script>
-</head>
+            <!--========== MENU ==========-->
+            <section class="menu section bd-container" id="menu">
+                <h2 class="section-title">My Courses</h2>
 
-<body>
+                <div class="menu__container bd-grid">
+                    <div class="menu__content">
+                        <img src="assets/img/book.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Linear Algebra </h3>
+                        <span class="menu__detail">M340L</span>
+                        <span class="menu__preci">Tues, Thurs 9:30-11 AM</span>
+                        <a href="#" class="button menu__button"></a>
+                    </div>
 
-<h1>title filler text</h1>
+                    <div class="menu__content">
+                        <img src="assets/img/book.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Operating Systems</h3>
+                        <span class="menu__detail">CS439</span>
+                        <span class="menu__preci">Mon, Wed 11:30-1 AM</span>
+                        <a href="#" class="button menu__button"></a>
+                    </div>
+                    
+                    <div class="menu__content">
+                        <img src="assets/img/book.svg" alt="" class="menu__img">
+                        <h3 class="menu__name">Class 3</h3>
+                        <span class="menu__detail"></span>
+                        <span class="menu__preci"></span>
+                        <a href="#" class="button menu__button"></a>
+                    </div>
 
-<input type="file" id="fileinput" />
-<input type="submit" value="submit" onclick="return submit();" />
-<span id="hidden" style="display:none">Submitted!</span>
+                    <div class="menu__content">
+                        <img src="assets/img/book.svg" alt="" class="menu__img">
+                        <h3 class="menu__name"></h3>
+                        <span class="menu__detail"></span>
+                        <span class="menu__preci"></span>
+                        <a href="#" class="button menu__button"></a>
+                    </div>
+                    <div class="menu__content">
+                        <img src="assets/img/book.svg" alt="" class="menu__img">
+                        <h3 class="menu__name"></h3>
+                        <span class="menu__detail"></span>
+                        <span class="menu__preci"></span>
+                        <a href="#" class="button menu__button"></a>
+                    </div>
 
-</body>
+
+                    <div class="menu__content">
+                        <img src="assets/img/book.svg" alt="" class="menu__img">
+                        <h3 class="menu__name"></h3>
+                        <span class="menu__detail"></span>
+                        <span class="menu__preci"></span>
+                        <a href="#" class="button menu__button"></a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!--========== CONTACT US ==========-->
+            <section class="contact section bd-container" id="contact">
+                <div class="contact__container bd-grid">
+                    <div class="contact__data">
+                        <h2 class="section-title contact__initial">Meet the Team!</h2>
+                        <p class="contact__description"></p>
+                    </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
