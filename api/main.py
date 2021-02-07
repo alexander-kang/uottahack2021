@@ -1,46 +1,53 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
 from flask_sqlalchemy import SQLAlchemy
+from config import *
+import base64
+from PIL import Image
+from io import BytesIO
 
 # making Flask instance
 app = Flask(__name__)
 # making Api wrapper
 api = Api(app)
-# configuring app for the db & then making SQLAlchemy wrapper
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+# database configuration 
+app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql+pymysql://{USERNAME}:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
+
 db = SQLAlchemy(app)
 
 # UserModel class
 class UserModel(db.Model):
     # making id field within model; must be unique
     id = db.Column(db.Integer, primary_key=True)
-    # making username field within model; max length of 254; requires that this field has some info
-    username = db.Column(db.String(254), nullable=False)
+    # making email field within model; max length of 254; requires that this field has some info
+    email = db.Column(db.String(254), nullable=False)
     # making password field within model; max length of 254; requries that this field has some info
     password = db.Column(db.String(254), nullable=False)
 
     # repr method makes it possible to print this out
     def __repr__(self):
-        return f"User(username = {username}, password = {password})"
+        return f"User(email = {email}, password = {password})"
 
 # only want to do this once or it will write over pre-existing data
 #db.create_all()
 
 # parsing arguments of user
 user_put_args = reqparse.RequestParser()
-user_put_args.add_argument("username", type=str, help="Username is required", required=True)
+user_put_args.add_argument("email", type=str, help="Email is required", required=True)
 user_put_args.add_argument("password", type=str, help="Password is required", required=True)
 
 # note: not required to provide all arguments here
 user_update_args = reqparse.RequestParser()
-user_update_args.add_argument("username", type=str, help="Username is required")
+user_update_args.add_argument("email", type=str, help="Email is required")
 user_update_args.add_argument("password", type=str, help="Password is required")
 
 # defines how an object should be serialized
 resource_fields = {
-    'id': fields.Integer,
-    'username': fields.String,
-    'password': fields.String
+    "id": fields.Integer,
+    "email": fields.String,
+    "password": fields.String
 }
 
 # User class
@@ -62,7 +69,7 @@ class User(Resource):
         result = UserModel.query.filter_by(id=user_id).first()
         if result:
             abort(409, message="User ID already taken")
-        user = UserModel(id=user_id, username=args['username'], password=args['password'])
+        user = UserModel(id=user_id, email=args['email'], password=args['password'])
         db.session.add(user)
         db.session.commit()
         return user, 201
@@ -74,8 +81,8 @@ class User(Resource):
         result = UserModel.query.filter_by(id=user_id).first()
         if not result:
             abort(404, message="Cannot update a user that does not exist")
-        if args["username"]:
-            result.username = args["username"]
+        if args["email"]:
+            result.email = args["email"]
         if args["password"]:
             result.password = args["password"]
         db.session.commit()
