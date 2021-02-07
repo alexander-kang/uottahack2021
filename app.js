@@ -4,17 +4,6 @@ var myFile = $('#fileinput').prop('files');
 
 // Submit button
 function submit() {
-    alert("Submit button clicked!");
-    var submitted = true;
+    document.getElementById("hidden").style.display="inline";
     return true;
-}
-
-// Hidden element
-function hide() {
-    var x = document.getElementById("hidden");
-    if (submitted === true) {
-        x.style.display = "none";
-    } else {
-        x.style.display = "inline";
-    }
 }
